@@ -80,8 +80,10 @@ public class Main {
                         case "detail":
                         case "extra":
                         case "information":
-                            System.err.println("Not implemented yet.\n");
-                            //TODO
+                            System.out.print("Which value would you like to edit? : ");
+                            String key = scan.next();
+                            System.out.print("What should the value be? : ");
+                            creatures.get(id).addInfo(key, "" + scan.nextLine());
                         break;
                     }
                 break;

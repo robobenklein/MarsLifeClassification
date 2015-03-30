@@ -61,6 +61,5 @@ public class Creature extends Ingesting {
         System.out.println();
         System.out.println("Creature " + this);
         System.out.println("Custom information: " + information);
-        
     }
 }
