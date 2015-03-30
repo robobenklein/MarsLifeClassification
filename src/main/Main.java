@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Scanner;
+import classification.Creature;
 
 public class Main {
     
