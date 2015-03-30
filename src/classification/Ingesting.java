@@ -12,7 +12,7 @@ public class Ingesting extends Motive {
     }
     
     public String toString() {
-        return("" + ingestion);
+        return(super.toString() + " " + ingestion);
     }
     
 }

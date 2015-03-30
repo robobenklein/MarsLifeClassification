@@ -25,6 +25,21 @@ public class Creature extends Ingesting {
         this.species = species;
         this.information = information;
     }
+    
+    // Code to change Genus / Species / Ingestion / Motive
+    public void setGenus(String genus) {
+        this.genus = genus;
+    }
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+    public void setIngest(String ingest) {
+        this.ingestion = ingest;
+    }
+    public void setMotive(String motive) {
+        this.motive = motive;
+    }
+    
     // Adds extra information to the Creature's information dict.
     public void addInfo(String key, String value) {
         information.put(key, value);
@@ -38,4 +53,14 @@ public class Creature extends Ingesting {
         }
     }
     
+    public String toString() {
+        return super.toString() + " " + genus + " " + species;
+    }
+    
+    public void printAllInfo() {
+        System.out.println();
+        System.out.println("Creature " + this);
+        System.out.println("Custom information: " + information);
+        
+    }
 }
