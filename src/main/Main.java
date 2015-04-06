@@ -136,7 +136,7 @@ public class Main {
                 default: // We don't know how to interpret what they typed.
                     System.out.println("\nThat wasn't an option, or was it?");
                 break;
-            }
+            } // End Switch Case selector
         } // That ends our interactive loop, close it all up.
         scan.close();
     }
