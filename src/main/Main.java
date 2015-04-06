@@ -64,8 +64,15 @@ public class Main {
                 break;
                 case "create":
                 case "add":
-                    // TODO
-                    System.out.print("\nError: Not implemented yet.");
+                    System.out.println("\nYou are creating a new creature.\n");
+                    String motive = selectMotive();
+                    String ingest = selectIngest();
+                    System.out.print("What is the genus? : ");
+                    String genus = scan.next();
+                    System.out.print("What is the species? : ");
+                    String species = scan.next();
+                    // TODO Need to add the duplicate check.
+                    creatures.add(new Creature(motive, ingest, genus, species));
                 break;
                 case "random": // Add Random entries to populate the list of creatures.
                 case "populate":
