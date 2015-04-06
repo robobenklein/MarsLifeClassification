@@ -1,5 +1,16 @@
 package main;
 
+/*
+ * Ben Klein, Mars Life Classification
+ * 
+ * See project on Github at github.com/robobenklein/MarsLifeClassiciation
+ * 
+ * See README.md for Project Description and other details.
+ * 
+ * Project Requirements and Specifications are in 'Project-Requirements.pdf'
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -25,6 +36,15 @@ public class Main {
         boolean continuePrompt = true;
         randomGenerator = new Random();
         String userinput = "";
+        String commands =
+                "list: List all the Creatures in the Database.\n" + 
+                "create/add: Add a creature to the list.\n" + 
+                "random/populate: Adds a random set of creatures to the list.\n" + 
+                "quit/exit: Exit the program.\n" + 
+                "edit/customize: Change a creature's details.\n" + 
+                "info/details: Show more information about a creature.\n" +
+                "help/?: Shows this help menu.\n"
+                ;
         
         // Now we start the interactive mode.
         System.out.println();
@@ -108,6 +128,10 @@ public class Main {
                     int index = scan.nextInt();
                     System.out.print("Creature Details:");
                     creatures.get(index).printAllInfo();
+                break;
+                case "help":
+                case "?":
+                    System.out.println("\n" + commands);
                 break;
                 default: // We don't know how to interpret what they typed.
                     System.out.println("\nThat wasn't an option, or was it?");
