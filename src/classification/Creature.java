@@ -53,10 +53,12 @@ public class Creature extends Ingesting {
         }
     }
     
+    // The proper name for this species.
     public String toString() {
         return super.toString() + " " + genus + " " + species;
     }
     
+    // Print everything we have on the creature.
     public void printAllInfo() {
         System.out.println();
         System.out.println("Creature " + this);

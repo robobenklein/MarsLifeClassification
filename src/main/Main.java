@@ -2,32 +2,39 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Set;
+
 import classification.Creature;
 
 public class Main {
     
+    // Create a random generator for creating our initial creatures we don't want to type in.
     private static Random randomGenerator;
     
+    // Main, boots up our interactive prompt.
     public static void main(String[] args) {
         
+        // Set up our empty list of creatures.
         List<Creature> creatures = new ArrayList<Creature>();
 
+        // Declare basic variables to prevent random undefined errors.
         boolean continuePrompt = true;
         randomGenerator = new Random();
         String userinput = "";
         
         // Now we start the interactive mode.
         System.out.println();
-        
         Scanner scan = new Scanner(System.in);
         while (continuePrompt == true) {
+            // Until they tell us to quit or exit, we'll keep asking.
             System.out.print("What would you like to do? : ");
             userinput = scan.next().toLowerCase();
             switch (userinput) {
-                case "list":
+                case "list": // Let's print out all of the creatures we have in the database.
                     System.out.println();
                     System.out.println("--- All Creatures in Database: ---");
                     for (int i=0; i<creatures.size(); i++) {
@@ -37,19 +44,27 @@ public class Main {
                 break;
                 case "create":
                 case "add":
-                    System.out.print("\n ");
+                    // TODO
+                    System.out.print("\nError: Not implemented yet.");
                 break;
                 case "random": // Add Random entries to populate the list of creatures.
                 case "populate":
                     System.out.print("How many random entries? : ");
                     int num = scan.nextInt();
-                    makeEntries(creatures, num);
+                    List<Creature> creatures2 = creatures;
+                    makeEntries(creatures2, num);
+                    while (hasDuplicate(creatures2)) {
+                        creatures2 = creatures;
+                        makeEntries(creatures2, num);
+                    }
+                    creatures = creatures2;
+                    creatures2 = null;
                 break;
-                case "quit":
+                case "quit": // They've had enough, let's stop asking them for input.
                 case "exit":
                     continuePrompt = false;
                 break;
-                case "edit":
+                case "edit": // Give them a chance to edit a creature.
                 case "customize":
                     System.out.print("Which creature would you like to edit? : ");
                     int id = scan.nextInt();
@@ -87,14 +102,14 @@ public class Main {
                         break;
                     }
                 break;
-                case "info":
+                case "info": // What more do they want to know?
                 case "details":
                     System.out.print("Which creature do you want to see details on? : ");
                     int index = scan.nextInt();
                     System.out.print("Creature Details:");
                     creatures.get(index).printAllInfo();
                 break;
-                default:
+                default: // We don't know how to interpret what they typed.
                     System.out.println("\nThat wasn't an option, or was it?");
                 break;
             }
@@ -109,17 +124,17 @@ public class Main {
                                                                    "harsend",
                                                                    "keblet",
                                                                    "unfa",
-                                                                   "solan",
+                                                                   "solan", //5
                                                                    "porten",
                                                                    "yurnam",
                                                                    "iman",
                                                                    "takmin",
-                                                                   "weikem",
+                                                                   "weikem", //10
                                                                    "kadmein",
                                                                    "heinrich",
                                                                    "semtu",
                                                                    "iambu",
-                                                                   "reahn",
+                                                                   "reahn", //15
                                                                    "elije",
                                                                    "spoken",
                                                                    "jentu"
@@ -135,11 +150,12 @@ public class Main {
                                                                    "poten",
                                                                    "grenlen",
                                                                    "sprectus",
-                                                                   "numen",
+                                                                   "numen", //5
                                                                    "kopenshmurf",
                                                                    "kenlung",
                                                                    "qeirl",
-                                                                   "aural"
+                                                                   "aural",
+                                                                   "gentoo" //10
                                                                    ));
         int index = randomGenerator.nextInt(choices.size());
         return choices.get(index);
@@ -173,6 +189,15 @@ public class Main {
         for (int i=0; i<number; i++) {
             list.add(new Creature(getRandomMotive(), getRandomIngest(), getRandomGenus(), getRandomSpecies()));
         }
+    }
+    
+    // Code to check if an ArrayList/List has duplicates.
+    public static <T> boolean hasDuplicate(Iterable<T> all) {
+        Set<T> set = new HashSet<T>();
+        // Set#add returns false if the set does not change, which
+        // indicates that a duplicate element has been added.
+        for (T each: all) if (!set.add(each)) return true;
+        return false;
     }
     
 }
