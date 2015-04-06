@@ -3,7 +3,7 @@ package main;
 /*
  * Ben Klein, Mars Life Classification
  * 
- * See project on Github at github.com/robobenklein/MarsLifeClassiciation
+ * See project on Github at https://github.com/robobenklein/MarsLifeClassiciation
  * 
  * See README.md for Project Description and other details.
  * 
@@ -25,6 +25,7 @@ public class Main {
     
     // Create a random generator for creating our initial creatures we don't want to type in.
     private static Random randomGenerator;
+    public static Scanner scan = new Scanner(System.in);
     
     // Main, boots up our interactive prompt.
     public static void main(String[] args) {
@@ -48,7 +49,6 @@ public class Main {
         
         // Now we start the interactive mode.
         System.out.println();
-        Scanner scan = new Scanner(System.in);
         while (continuePrompt == true) {
             // Until they tell us to quit or exit, we'll keep asking.
             System.out.print("What would you like to do? : ");
@@ -207,6 +207,33 @@ public class Main {
         int index = randomGenerator.nextInt(choices.size());
         return choices.get(index);
     }
+    
+    // Returns a user-selected Ingestion Type.
+    private static String selectIngest() {
+        String choice = "";
+        System.out.println("\n" +
+                "Please Select an Ingestion: \n" +
+                "1: perficiendo: Processing, like plants, trees, or herbivores. \n" +
+                "2: vaporem: Consumes gaseous substances, such as the \"floating whales\" \n" +
+                "3: carnem: Carnivorous, eats other creatures. \n"
+                );
+        try {
+            choice = scan.next();
+        } catch (Exception e) {
+            System.err.println("\n\tInvalid input. \n");
+        }
+        switch (choice) {
+            case "1":
+                return "perficiendo";
+            case "2":
+                return "vaporem";
+            case "3":
+                return "carnem";
+            default:
+                System.out.println("That was not an option! Try again!");
+                return selectIngest();
+        }
+    } // End selectIngest()
     
     // Adds random creatures to the creature list.
     private static void makeEntries(List<Creature> list,int number) {
