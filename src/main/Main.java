@@ -196,6 +196,31 @@ public class Main {
         int index = randomGenerator.nextInt(choices.size());
         return choices.get(index);
     }
+ // Returns a user-selected Motive Type.
+    private static String selectMotive() {
+        String choice = "";
+        System.out.println("\n" +
+                "Please Select a Motive (Movement type): \n" +
+                "1: pendens: Floating. \n" +
+                "2: repens: Crawls or walks on the surface. \n" +
+                "3: perfodiens: Burrows, digs underground. \n" +
+                "4: sedens: Does not move, like plants. \n"
+                );
+        choice = scan.next();
+        switch (choice) {
+            case "1":
+                return "pedens";
+            case "2":
+                return "repens";
+            case "3":
+                return "perfodiens";
+            case "4":
+                return "sedens";
+            default:
+                System.out.println("That was not an option! Try again! Use the corresponding number!");
+                return selectMotive();
+        }
+    } // End selectMotive()
     
     // Returns a random Ingestion
     private static String getRandomIngest() {
