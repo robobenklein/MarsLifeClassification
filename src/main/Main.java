@@ -211,7 +211,8 @@ public class Main {
                 "1: pendens: Floating. \n" +
                 "2: repens: Crawls or walks on the surface. \n" +
                 "3: perfodiens: Burrows, digs underground. \n" +
-                "4: sedens: Does not move, like plants. \n"
+                "4: sedens: Does not move, like plants. \n" +
+                "Which do you choose? : "
                 );
         choice = scan.next();
         switch (choice) {
@@ -247,7 +248,8 @@ public class Main {
                 "Please Select an Ingestion: \n" +
                 "1: perficiendo: Processing, like plants, trees, or herbivores. \n" +
                 "2: vaporem: Consumes gaseous substances, such as the \"floating whales\" \n" +
-                "3: carnem: Carnivorous, eats other creatures. \n"
+                "3: carnem: Carnivorous, eats other creatures. \n" +
+                "Which do you choose? : "
                 );
         try {
             choice = scan.next();
