@@ -1,6 +1,6 @@
 # MarsLifeClassification
 
-### Current Version: 0.6.21-stable
+### Current Version: 0.6.25-stable
 
 AP Computer Science Final Design Project
 

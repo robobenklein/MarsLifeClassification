@@ -203,7 +203,7 @@ public class Main {
         int index = randomGenerator.nextInt(choices.size());
         return choices.get(index);
     }
- // Returns a user-selected Motive Type.
+    // Returns a user-selected Motive Type.
     private static String selectMotive() {
         String choice = "";
         System.out.println("\n" +

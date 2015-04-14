@@ -49,7 +49,7 @@ public class Creature extends Ingesting {
         try {
             return information.get(key);
         } catch (Exception e) {
-            return "Error getting information.";
+            return "Error";
         }
     }
     
@@ -64,4 +64,20 @@ public class Creature extends Ingesting {
         System.out.println("Creature " + this);
         System.out.println("Custom information: " + information);
     }
+    
+    // Compare the two based on what type of comparison they want.
+    public int compareTo(Creature other, String comparetype) {
+        if (comparetype.matches("first*|base")) {
+            String compare1 = this.motive + this.ingestion;
+            String compare2 = other.motive + other.ingestion;
+            return compare1.compareTo(compare2);
+        }
+        else return this.toString().compareTo(other.toString());
+    }
+    
+    // Compare the two when no type of comparison is specified.
+    public int compareTo(Creature other) {
+        return compareTo(other, "base");
+    }
+
 }

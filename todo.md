@@ -1,10 +1,9 @@
 # Stuff that needs to be done.
 
 ### Requirements:
- - [ ] CompareTo methods
-    - [ ] CompareTo methods for Motives/Ingesting
-    - [ ] CompareTo method for Genus/Species
-    - [ ] CompareTo for all of the above
+ - [X] CompareTo methods
+    - [X] CompareTo methods for Motives/Ingesting
+    - [X] CompareTo for all of the above
  - [ ] Check if lifeform being added is already in array.
  - [ ] Population Estimation for species
  - [ ] Define instance variables and assign randomly for starting 17:
