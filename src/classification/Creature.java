@@ -79,5 +79,11 @@ public class Creature extends Ingesting {
     public int compareTo(Creature other) {
         return compareTo(other, "base");
     }
+    
+    // Using this for the List.conatins() method to work correctly.
+    public boolean equals(Creature other) {
+        if (compareTo(other) == 0) return true;
+        else return false;
+    }
 
 }

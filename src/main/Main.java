@@ -72,7 +72,21 @@ public class Main {
                     System.out.print("What is the species? : ");
                     String species = scan.next();
                     // TODO Need to add the duplicate check.
-                    creatures.add(new Creature(motive, ingest, genus, species));
+                    Creature newCreature = new Creature(motive, ingest, genus, species);
+                    // Check if the creature is already listed.
+                    if (isCreatureInArr(newCreature, creatures)) {
+                        System.out.print("This creature appears to already be in the list!\n" +
+                                         "Are you sure we should continue adding it? [yes/no] [y/n] : ");
+                        userinput = scan.next();
+                        if (userinput.equalsIgnoreCase("yes") | userinput.equalsIgnoreCase("y")) {
+                            creatures.add(new Creature(motive, ingest, genus, species));
+                        } else {
+                            System.out.println("\nCancelled adding creature.");
+                        }
+                    } else { // If the creature is not in the list already.
+                        creatures.add(new Creature(motive, ingest, genus, species));
+                    }
+                    
                 break;
                 case "random": // Add Random entries to populate the list of creatures.
                 case "populate":
@@ -121,11 +135,15 @@ public class Main {
                         case "info":
                         case "detail":
                         case "extra":
-                        case "information":
+                        case "information": // Let them set one of the extra (custom) values
                             System.out.print("Which value would you like to edit? : ");
                             String key = scan.next();
                             System.out.print("What should the value be? : ");
-                            creatures.get(id).addInfo(key, "" + scan.nextLine());
+                            userinput = scan.next();
+                            creatures.get(id).addInfo(key, "" + userinput);
+                        break;
+                        default:
+                            System.out.println("That was not an option!");
                         break;
                     }
                 break;
@@ -282,6 +300,16 @@ public class Main {
         // Set#add returns false if the set does not change, which
         // indicates that a duplicate element has been added.
         for (T each: all) if (!set.add(each)) return true;
+        return false;
+    }
+    
+    // Code to check if a creature is in the given array.
+    public static boolean isCreatureInArr(Creature s, List<Creature> creatures) {
+        for (int i = 0; i < creatures.size(); i++) {
+            if (creatures.get(i).equals(s)) {
+                return true;
+            }
+        }
         return false;
     }
     
