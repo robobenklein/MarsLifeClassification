@@ -75,7 +75,7 @@ public class Main {
                     Creature newCreature = new Creature(motive, ingest, genus, species);
                     // Check if the creature is already listed.
                     if (isCreatureInArr(newCreature, creatures)) {
-                        System.out.print("This creature appears to already be in the list!\n" +
+                        System.out.print("This motive/ingestion combination is already in the list!\n" +
                                          "Are you sure we should continue adding it? [yes/no] [y/n] : ");
                         userinput = scan.next();
                         if (userinput.equalsIgnoreCase("yes") | userinput.equalsIgnoreCase("y")) {
@@ -130,7 +130,7 @@ public class Main {
                             System.out.print("What should the species be set to? : ");
                             creatures.get(id).setSpecies(scan.next());
                         break;
-                        case "more":
+                        case "more": // They can type any of these, maybe too many options?
                         case "other":
                         case "info":
                         case "detail":
@@ -151,8 +151,9 @@ public class Main {
                 case "details":
                     System.out.print("Which creature do you want to see details on? : ");
                     int index = scan.nextInt();
-                    System.out.print("Creature Details:");
+                    System.out.print("\nCreature Details:");
                     creatures.get(index).printAllInfo();
+                    System.out.println();
                 break;
                 case "help":
                 case "?":
@@ -185,7 +186,7 @@ public class Main {
                                                                    "iambu",
                                                                    "reahn", //15
                                                                    "elije",
-                                                                   "spoken",
+                                                                   "spokken",
                                                                    "jentu"
                                                                    ));
         int index = randomGenerator.nextInt(choices.size());
@@ -200,7 +201,7 @@ public class Main {
                                                                    "grenlen",
                                                                    "sprectus",
                                                                    "numen", //5
-                                                                   "kopenshmurf",
+                                                                   "koppenshmurf",
                                                                    "kenlung",
                                                                    "qeirl",
                                                                    "aural",
@@ -290,7 +291,8 @@ public class Main {
     // Adds random creatures to the creature list.
     private static void makeEntries(List<Creature> list,int number) {
         for (int i=0; i<number; i++) {
-            list.add(new Creature(getRandomMotive(), getRandomIngest(), getRandomGenus(), getRandomSpecies()));
+            Creature newCreature = new Creature(getRandomMotive(), getRandomIngest(), getRandomGenus(), getRandomSpecies());
+            list.add(newCreature);
         }
     }
     
@@ -305,11 +307,12 @@ public class Main {
     
     // Code to check if a creature is in the given array.
     public static boolean isCreatureInArr(Creature s, List<Creature> creatures) {
+        // Check all the creatures in the array.
         for (int i = 0; i < creatures.size(); i++) {
             if (creatures.get(i).equals(s)) {
                 return true;
             }
-        }
+        } // No matches found.
         return false;
     }
     
