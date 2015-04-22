@@ -2,6 +2,7 @@ package classification;
 
 import java.util.HashMap;
 import java.util.Map;
+import main.Population;
 
 public class Creature extends Ingesting {
     
