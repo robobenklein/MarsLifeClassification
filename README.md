@@ -9,4 +9,3 @@ This is an AP CompSci project in which we create a simple program to identify an
 It organizes by Kingdom[Martis (Martian)] Motives[Movement type] Ingesting[Consumed Product] then allows for Genus and Species names.
 
 See the instructional PDF "Project-Requirements" for more information on the requirements of the project.
-

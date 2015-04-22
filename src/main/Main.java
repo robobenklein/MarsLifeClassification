@@ -263,7 +263,7 @@ public class Main {
     // Returns a user-selected Ingestion Type.
     private static String selectIngest() {
         String choice = "";
-        System.out.println("\n" +
+        System.out.print("\n" +
                 "Please Select an Ingestion: \n" +
                 "1: perficiendo: Processing, like plants, trees, or herbivores. \n" +
                 "2: vaporem: Consumes gaseous substances, such as the \"floating whales\" \n" +
@@ -283,7 +283,7 @@ public class Main {
             case "3":
                 return "carnem";
             default:
-                System.out.println("That was not an option! Try again!");
+                System.out.println("\nThat was not an option! Try again!");
                 return selectIngest();
         }
     } // End selectIngest()
