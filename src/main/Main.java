@@ -1,7 +1,8 @@
 package main;
 
-/*
- * Ben Klein, Mars Life Classification
+/**
+ * @author Ben Klein
+ * Mars Life Classification
  * 
  * See project on Github at https://github.com/robobenklein/MarsLifeClassiciation
  * 
