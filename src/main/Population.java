@@ -1,7 +1,7 @@
 package main;
 
 import classification.Creature;
-import main.Main;
+//import main.Main;
 
 /**
  * @author Ben Klein
@@ -49,6 +49,24 @@ public class Population {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         System.err.println("main.Population.main(String[] args) should not be called!");
+    }
+    
+    // Return the population exponent at specified time for creature.
+    public static double getPopulationAtTime(Creature creature, double years) {
+        double population = Math.log(Double.parseDouble(creature.getInfo("reprate")) * years + Double.parseDouble(creature.getInfo("years"))) * Double.parseDouble(creature.getInfo("populationexp"));
+        return(population);
+    }
+    
+    // Get the population per square mile.
+    public static double getPopulationPerSqKm(Creature creature, double km) {
+        double popnow = getPopulationAtTime(creature, 0);
+        return popnow * 5 * km;
+    }
+    
+    // Get the population per square mile at some point in the future.
+    public static double getPopulationPerSqKm(Creature creature, double km, double years) {
+        double popnow = getPopulationAtTime(creature, years);
+        return popnow * 5 * km;
     }
     
 }

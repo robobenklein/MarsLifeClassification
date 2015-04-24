@@ -153,7 +153,11 @@ public class Main {
                     System.out.print("Which creature do you want to see details on? : ");
                     int index = scan.nextInt();
                     System.out.print("\nCreature Details:");
-                    creatures.get(index).printAllInfo();
+                    try { // In the case that they did it wrong.
+                        creatures.get(index).printAllInfo(); 
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("No such creature.");
+                    }
                     System.out.println();
                 break;
                 case "help":
@@ -293,6 +297,9 @@ public class Main {
     private static void makeEntries(List<Creature> list,int number) {
         for (int i=0; i<number; i++) {
             Creature newCreature = new Creature(getRandomMotive(), getRandomIngest(), getRandomGenus(), getRandomSpecies());
+            newCreature.addInfo("reprate", ((randomGenerator.nextDouble() * 2) - 0.5));
+            newCreature.addInfo("years", ((randomGenerator.nextDouble() * 60)));
+            newCreature.addInfo("populationexp", randomGenerator.nextDouble());
             list.add(newCreature);
         }
     }

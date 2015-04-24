@@ -5,9 +5,10 @@
     - [X] CompareTo methods for Motives/Ingesting
     - [X] CompareTo for all of the above
  - [X] Check if lifeform being added is already in array.
- - [ ] Population Estimation for species
+ - [X] Population Estimation for species
+ - [ ] Menu option pop estimation
  - [ ] Define instance variables and assign randomly for starting 17:
-    - [ ] Population density for calculating per square kilometer
+    - [X] Population density for calculating per square kilometer
     - [ ] average lifespan
     - [ ] average size
     - [ ] average mass

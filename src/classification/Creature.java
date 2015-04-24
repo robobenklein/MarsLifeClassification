@@ -2,6 +2,7 @@ package classification;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import main.Population;
 
 public class Creature extends Ingesting {
@@ -45,6 +46,9 @@ public class Creature extends Ingesting {
     public void addInfo(String key, String value) {
         information.put(key, value);
     }
+    public void addInfo(String key, double d) {
+        information.put(key, String.valueOf(d));
+    }
     // Returns information from dict if key is present
     public String getInfo(String key) {
         try {
@@ -64,6 +68,12 @@ public class Creature extends Ingesting {
         System.out.println();
         System.out.println("Creature " + this);
         System.out.println("Custom information: " + information);
+        System.out.println("Population from 0 to 1, extinct to Maximum Sustainable Population");
+        System.out.println("Population now:   " + Population.getPopulationAtTime(this, 0));
+        System.out.println("Population 5yrs:  " + Population.getPopulationAtTime(this, 5));
+        System.out.println("Population 30yrs: " + Population.getPopulationAtTime(this, 30));
+        System.out.println("Absolute Population per sqKm: " + Population.getPopulationPerSqKm(this, 1));
+        System.out.println("Absolute Population per sqKm in 30yrs: " + Population.getPopulationPerSqKm(this, 1, 30));
     }
     
     // Compare the two based on what type of comparison they want.
